@@ -1,0 +1,16 @@
+import requests
+import json
+Response = requests.get("https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&site=stackoverflow")
+#print(Response.json())
+#explore items explicitly
+#print(Response.json()['items'])
+#to iterate over specific items, needs to use for loop
+for data in Response.json()['items']:
+    if data['answer_count']==0:
+       print(data['link'])
+       print()
+       print(data['title'])
+    else:
+        print("skip")
+    print()
+   
